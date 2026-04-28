@@ -4,12 +4,12 @@ from __future__ import annotations
 
 from fastapi import FastAPI
 
+from src.routes.health import register_health_routes
+
 app = FastAPI()
 
-@app.get("/")
+@app.get('/')
 def root() -> dict[str, str]:
-    return {"message": "hello"}
+    return {'message': 'hello'}
 
-@app.get("/health")
-def health() -> dict[str, str]:
-    return {"status": "ok"}
+register_health_routes(app)
