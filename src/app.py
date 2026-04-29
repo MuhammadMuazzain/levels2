@@ -5,6 +5,7 @@ from __future__ import annotations
 from fastapi import FastAPI
 
 from src.routes.health import register_health_routes
+from src.routes.readyz import register_readyz_routes
 
 app = FastAPI()
 
@@ -13,3 +14,5 @@ def root() -> dict[str, str]:
     return {'message': 'hello'}
 
 register_health_routes(app)
+
+register_readyz_routes(app)
